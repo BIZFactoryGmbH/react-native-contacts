@@ -87,9 +87,14 @@ public class ContactsManager extends ReactContextBaseJavaModule {
                 ContentResolver cr = context.getContentResolver();
 
                 ContactsProvider contactsProvider = new ContactsProvider(cr);
+                try{
                 WritableArray contacts = contactsProvider.getContacts();
 
                 callback.invoke(null, contacts);
+                }
+                catch(java.lang.SecurityException e){
+                    e.printStackTrace();
+                }
             }
         });
     }
