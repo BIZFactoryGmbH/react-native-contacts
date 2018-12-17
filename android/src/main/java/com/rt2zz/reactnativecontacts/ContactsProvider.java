@@ -168,7 +168,7 @@ public class ContactsProvider {
        return null;
     }
 
-    public WritableArray getContacts() {
+    public WritableArray getContacts() throws java.lang.SecurityException{
         Map<String, Contact> justMe;
         {
             Cursor cursor = contentResolver.query(
